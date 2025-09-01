@@ -107,6 +107,14 @@ class CalculadoraDeArea {
             return Math.PI * radio * radio;
         }
     }
+    public static double calcularPitagoras( double a, double b) {
+        if (a <= 0 ||b <= 0) {
+            System.out.println("Los catetos no pueden ser negativos ni 0");
+            return 0;
+        } else {
+            return Math.pow(a,2) + Math.pow(b,2);
+        }
+    }
 }
 public class Main {
     public static void main(String[] args) {
@@ -186,6 +194,14 @@ public class Main {
 //        if (resultado != -1) {
 //            System.out.println("El factorial de " + n + " es: " + resultado);
 //        }
-//      
+//      PITAGORAS
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Calculadora de Pitagoras");
+        System.out.println("Introduce el valor de un cateto: ");
+        double a = sc.nextDouble();
+        System.out.println("Introduce el valor del otro cateto: ");
+        double b = sc.nextDouble();
+        double resultado = CalculadoraDeArea.calcularPitagoras(a, b);
+        System.out.println("El valor de la hipotenusa al cuadrado es: " + resultado);
     }
 }
