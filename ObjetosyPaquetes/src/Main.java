@@ -98,6 +98,50 @@ class Estudiante{
         return sb.toString();
     }
 }
+class Boligrafo{
+    private short CANTIDAD_MAXIMA_TINTA=100;
+    private String color;
+    private short tinta;
+
+    public Boligrafo(short tinta, String color){
+        this.color = color;
+        this.tinta = tinta;
+    }
+    public String getColor(){
+        return this.color;
+    }
+    public short getTinta(){
+        return this.tinta;
+    }
+    private void setTinta(short tinta){
+        if (tinta > 0){
+            if (this.tinta + tinta > this.CANTIDAD_MAXIMA_TINTA){
+                return ;
+            } else {
+                this.tinta += tinta;
+            }
+        } else {
+            this.tinta -= tinta;
+        }
+    }
+    public void recargar(){
+        short a = this.CANTIDAD_MAXIMA_TINTA;
+        short b = this.tinta;
+        short resultado = (short) (a-b);
+        setTinta(resultado);
+    }
+    public String pintar(short gasto){
+        StringBuilder sb = new StringBuilder();
+        for (int i = this.tinta; i == gasto; i--){
+            sb.append("*");
+        }
+        short a = tinta;
+        short b = gasto;
+        short resultado = (short) (a - b);
+        setTinta(resultado);
+        return sb.toString();
+    }
+}
 public class Main {
     public static void main(String[] args) {
 //        Creo que necesito un préstamo
