@@ -2,8 +2,8 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.ArrayList;
-//import Conductor;
-//import EmpresaTransporte;
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -58,6 +58,25 @@ public class Main {
 //        System.out.println("El conductor con mas kilometros recorridos es: " + conductores.get(conductorMasKilometros).getNombre() + " con " + conductores.get(conductorMasKilometros).getTotalKilometros() + " kilometros.");
 //        System.out.println("El conductor con mas kilometros recorridos el dia 3 es: " + conductores.get(conductorMasKilometrosDia3).getNombre() + " con " + conductores.get(conductorMasKilometrosDia3).getKilometrosRecorridos().get(2) + " kilometros.");
 //        System.out.println("El conductor con mas kilometros recorridos el dia 5 es: " + conductores.get(conductorMasKilometrosDia5).getNombre() + " con " + conductores.get(conductorMasKilometrosDia5).getKilometrosRecorridos().get(4) + " kilometros.");
-
+        Veterinaria vet = new Veterinaria();
+        Cliente cliente1 = new Cliente("Calle Falsa 123", "Juan", "Perez", 1115634547);
+        cliente1.addMascota(new Mascota("Perro", "Pepe", new Date(2021, 8,25)));
+        Cliente cliente2 = new Cliente("Esquiro 247", "Marta", "Ramirez", 1142527478);
+        Mascota mascota2 = new Mascota("Gato", "Bola de Nieve", new Date(2022,7,6));
+        mascota2.addVacuna("Triple Felina");
+        cliente2.addMascota(mascota2);
+        Cliente cliente3 = new Cliente("Rawson 2863", "Ezequiel", "Cuevas", 1134856871);
+        Mascota mascota3 = new Mascota("Gato", "Yuumi", new Date(2024,3,15));
+        Mascota mascota4 = new Mascota("Perro" , "John", new Date(2018,11,30));
+        mascota4.addVacuna("Antirrabica");
+        cliente3.addMascota(mascota3);
+        cliente3.addMascota(mascota4);
+        vet.agregarCliente(cliente1);
+        vet.agregarCliente(cliente2);
+        vet.agregarCliente(cliente3);
+        ArrayList<Cliente> clientes = vet.getClientes();
+        for (Cliente cliente : clientes) {
+            System.out.println(cliente.mostrarCliente());
+        }
     }
 }
